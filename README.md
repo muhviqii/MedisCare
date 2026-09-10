@@ -214,8 +214,3 @@ routes/
 - Hasil radiologi disimpan di disk non-publik, hanya bisa diunduh lewat route terautentikasi
 - Audit log mencatat user, role, aksi, modul, record ID, timestamp, IP, dan user agent untuk
   setiap aktivitas sensitif
-
-## Progres Pengembangan
-
-Lihat `PROGRESS.md` untuk rincian lengkap setiap tahap pengerjaan (11 tahap, dari fondasi
-database hingga PWA dan dokumentasi ini).
