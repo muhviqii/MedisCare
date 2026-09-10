@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Offline - MedisCare</title>
+    <style>
+        body { margin:0; font-family: system-ui, sans-serif; background:#f8fafc; color:#1e293b;
+               height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; }
+        .card { max-width:360px; }
+        .icon { width:64px; height:64px; border-radius:16px; background:#0d9488; color:white;
+                display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:20px;
+                margin:0 auto 16px; }
+        h1 { font-size:18px; margin-bottom:8px; }
+        p { font-size:14px; color:#64748b; }
+        button { margin-top:16px; background:#0d9488; color:white; border:none; border-radius:12px;
+                 padding:12px 24px; font-size:14px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">M+</div>
+        <h1>Tidak Ada Koneksi Internet</h1>
+        <p>MedisCare memerlukan koneksi internet untuk mengakses data pasien terbaru. Silakan periksa
+           koneksi Anda dan coba lagi.</p>
+        <button onclick="location.reload()">Coba Lagi</button>
+    </div>
+</body>
+</html>
