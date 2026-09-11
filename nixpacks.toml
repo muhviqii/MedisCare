@@ -1,0 +1,8 @@
+[providers]
+providers = ['php', 'node']
+
+[variables]
+NIXPACKS_PHP_VERSION = '8.4'
+
+[phases.setup]
+aptPkgs = ['php8.4-gd', 'php8.4-zip', 'php8.4-mysql', 'php8.4-mbstring', 'php8.4-xml']
