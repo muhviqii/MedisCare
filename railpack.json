@@ -1,12 +1,12 @@
 {
   "$schema": "https://schema.railpack.com/v1.json",
-  "packages": [
-    "php84",
-    "php84-gd",
-    "php84-zip",
-    "php84-mysqli",
-    "php84-pdo_mysql",
-    "php84-mbstring",
-    "php84-xml"
-  ]
+  "packages": {
+    "php84": "*",
+    "php84-gd": "*",
+    "php84-zip": "*",
+    "php84-mysqli": "*",
+    "php84-pdo_mysql": "*",
+    "php84-mbstring": "*",
+    "php84-xml": "*"
+  }
 }
