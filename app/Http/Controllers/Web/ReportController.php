@@ -66,20 +66,24 @@ class ReportController extends Controller
 
     public function revenue(Request $request): View
     {
-        Gate::authorize('reports.view-aggregate');
+    Gate::authorize('reports.view-aggregate');
 
-        $invoices = Invoice::query()
-            ->with('patient')
-            ->when($request->filled('from'), fn ($q) => $q->whereDate('created_at', '>=', $request->date('from')))
-            ->when($request->filled('to'), fn ($q) => $q->whereDate('created_at', '<=', $request->date('to')))
-            ->when($request->filled('status'), fn ($q) => $q->where('status', $request->string('status')))
-            ->orderByDesc('id')
-            ->paginate(30)
-            ->withQueryString();
+    // 1. Define the base query builder
+    $query = Invoice::query()
+        ->with('patient')
+        ->when($request->filled('from'), fn ($q) => $q->whereDate('created_at', '>=', $request->date('from')))
+        ->when($request->filled('to'), fn ($q) => $q->whereDate('created_at', '<=', $request->date('to')))
+        ->when($request->filled('status'), fn ($q) => $q->where('status', $request->string('status')));
 
-        $totalRevenue = (clone $invoices->getQuery())->sum('paid_amount');
+    // 2. Calculate sum from the query directly
+    $totalRevenue = (clone $query)->sum('paid_amount');
 
-        return view('reports.revenue', compact('invoices', 'totalRevenue'));
+    // 3. Apply ordering and pagination
+    $invoices = $query->orderByDesc('id')
+        ->paginate(30)
+        ->withQueryString();
+
+    return view('reports.revenue', compact('invoices', 'totalRevenue'));
     }
 
     public function bedUsage(): View
